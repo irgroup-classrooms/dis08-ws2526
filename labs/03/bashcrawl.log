@@ -1,0 +1,740 @@
+ctivating profile: /srv/conda/etc/profile.d/conda.sh
+=====================
+Welcome to bashcrawl!
+=====================
+
+This is a game to teach you the basics of using a POSIX (Linux, BSD,
+UNIX) terminal, like the one where you are reading this message now.
+
+Your first move is very important.
+Type this into the terminal, and press RETURN:
+
+    cat scroll
+
+You are now playing the game.
+May the gods save you.
+
+bashcrawler$ ls
+cellar  scroll
+bashcrawler$ cd cellar/
+bashcrawler$ ls
+armoury  scroll  treasure
+bashcrawler$ cd ..
+bashcrawler$ cat scroll
+
+It is pitch black in these catacombs.
+You have a magickal spell that lists all items in a room.
+
+To see in the dark, type:     ls
+To move around, type:         cd <directory>
+
+Try looking around this room.
+Then move into one of the next rooms.
+
+EXAMPLE:
+
+$ ls
+$ cd cellar
+
+Remember to cast ``ls`` when you get into the next room!
+
+bashcrawler$ cd cellar/
+bashcrawler$ ls
+armoury  scroll  treasure
+bashcrawler$ cat treasure 
+#!/usr/bin/env bash
+#
+# If you are reading this, you have wandered out of bounds
+# and are reading the code that drives the game.
+#
+#                    Congratulations!
+#
+# Learning Linux is all about curiosity, so read this code and see
+# if you can figure out what it does.
+#
+# When you're ready to continue playing the game, though, stick to
+# the scrolls. If you're stuck, go to Gitlab and create an issue.
+# We're happy to provide hints.
+#
+
+if ! grep  --only-matching amulet <<< $I &> /dev/null; then
+    cat << EOF
+You have found an emerald **amulet**!
+
+To collect treasure, you must have a variable to hold your inventory.
+
+Create a variable and add your treasure to it like this:
+
+export I=amulet,\$I
+
+You can always check your wealth with this command:
+
+echo \$I
+
+EOF
+    mv ../.chapel ../chapel 2>/dev/null
+    mv ../.vault ../vault 2>/dev/null
+    mv ../.scrap ../scrap 2>/dev/null
+else
+    echo "This treasure has already been taken."
+fi
+
+
+# Hmm, that didn't work.
+# Try moving into the armoury, maybe you
+# can come back to this treasure later!
+
+
+bashcrawler$ ls
+armoury  scroll  treasure
+bashcrawler$ cd armoury/
+bashcrawler$ cd chamber/
+bashcrawler$ ls
+scroll  spell  statue  treasure
+bashcrawler$ ./spell
+Runes, the language of the ancient mystics that once ruled
+this land, are inscribed upon the western wall.
+
+Do you want to read them? y/n  y
+You recall the lessons of Caitlyn the Green, who taught you
+these ancient letters.
+
+The runes are instructions on how to summon a portal that
+will allow you to walk through an invisible door contained
+in the wall.
+
+In Bash, a symbolic link (symlink) is a *shortcut* to
+another file or directory.  Create one from this room to the
+adjacent one:
+
+ln -fs ../../../chapel/courtyard/aviary/hall portal
+
+bashcrawler$ ln -fs ../../../chapel/courtyard/aviary/hall portal
+bashcrawler$ cd portal
+bash: cd: portal: No such file or directory
+bashcrawler$ ./spell
+The invoked portal is still there, wide open as it has been
+since its first appearance.
+
+You can go through it just like any other door :
+
+cd portal
+
+bashcrawler$ ls
+portal  scroll  spell  statue  treasure
+bashcrawler$ cd portal
+bash: cd: portal: No such file or directory
+bashcrawler$ cd ..
+bashcrawler$ ls
+chamber  potion  scroll  treasure
+bashcrawler$ ./potion
+You have found a potion bottle of swirling
+green liquid. Do you want to drink it?  y/n
+
+y
+The taste of a rustic green plant fills your mouth.  It
+warms and strengthens you.
+
+Create a variable for your health points (HP).  You have
+15HP:
+
+export HP=15
+
+You can check your health at any time:
+
+echo $HP
+
+bashcrawler$ ls
+chamber  potion  scroll  treasure
+bashcrawler$ ./scroll
+bash: ./scroll: Permission denied
+bashcrawler$ cd scroll 
+bash: cd: scroll: Not a directory
+bashcrawler$ cd chamber/
+bashcrawler$ ls
+portal  scroll  spell  statue  treasure
+bashcrawler$ cd portal
+bashcrawler$ ls
+library  monster
+bashcrawler$ ./monster
+A hulking three-legged beast, with a mouth full of fangs and
+a barbed tail and 8 arms, lumbers toward you.
+
+If you have a sword, you can attack.  Otherwise, you should
+run.
+
+Do you want to attack? y/n  n
+You wisely turn and flee.  Quickly cd to the previous
+directory.
+
+bashcrawler$ cd library/
+bashcrawler$ ls
+scroll  tome
+bashcrawler$ ./scr
+bash: ./scr: No such file or directory
+bashcrawler$ ./scroll
+bash: ./scroll: Permission denied
+bashcrawler$ ./tome 
+
+You see a large tome on the table, open
+to a page in the middle of the book.
+
+Do you read it? y/n  y
+
+The tome appears to be a book of spells.  Here is the
+first spell:
+
+
+Map the entire dungeon!
+
+You can see the layout of the entire dungeon using the
+"tree" command.  You may need to install it as a separate
+package, consult your operating system package manager for
+details on how to do this.  If you're reading this from the
+library, your relative current directory path should be:
+
+entrance/chapel/courtyard/aviary/hall/library
+
+If you run the following command, from the library:
+
+tree -F ..
+
+You should see this:
+
+..
+├── library/
+│   ├── scroll
+│   └── tome*
+└── monster*
+
+The "tree" command takes many of the same options as the
+"ls" command, including colors and viewing hidden files.  Go
+back to the entrance and try it out!
+
+Do you want to read another spell? y/n  y
+
+View the world in color!
+
+If you have a modern, color terminal, you can view the
+output of the ls command in color!  This will still be a
+valid command if you don't have a color terminal, you just
+won't see colors.  Try this:
+
+alias ls='ls -F --color=auto'
+
+Now when you run the "ls" command by itself, rooms
+(directories), scrolls (text files), and encounters
+(executable files) should each have different colors.
+Depending on the $LS_COLORS variable, many other files will
+have different colors too!
+
+You can read more about colors by consulting the
+"dircolors" manual.  To read more, type this spell:
+
+man dircolors
+
+In the manual, you can type 'q' (without quotes) to
+exit the manual page.
+
+Do you want to read another spell? y/n  y
+
+Keep track of where you've been!
+
+Instead of using "cd <room>" and "cd .." to
+navigate the catacombs, you can keep track of the
+rooms you've been in by using "pushd" and "popd".
+"pushd", as the name implies, pushes the directory you
+pass as the argument onto the room (directory) stack.
+Use it like so:
+
+pushd <room>
+
+The angle brackets mean you specify the room (directory),
+you don't type the angle brackets.  To see your current
+stack, type the following command:
+
+dirs
+
+This will print out the list of directories on the stack.
+The data structure is a known as a stack, because you only
+add or remove elements from the top of the stack, it is also
+known as a LIFO (Last In, First Out) data structure.  To
+remove the top room (directory) from the stack, and change
+directory to the new directory on the top of the stack, use
+"popd", like so:
+
+popd
+
+This will remove the top element of the stack ("pop" it off the
+stack), and change directory to the next top of the stack.
+
+Here's an example.  You're in a room (directory) called
+~/bashcrawl/entrance/field/, with the following
+other rooms:
+
+cemetary/ jail/ oubliette/
+
+To change directory to the cemetary, and place it on the directory
+stack, use this:
+
+pushd cemetary
+
+Now, the directory stack (output of the "dirs" command),
+shows this:
+
+~/bashcrawl/entrance/field/cemetary ~/bashcrawl/entrance/field
+
+...and your current directory (present working directory,
+held in the $PWD variable) is the cemetary.  To go back to
+the field, run "popd".  The directory stack will return to
+~/bashcrawl/entrance/field, and your current directory will
+be that directory.  You can mix and match "pushd" with "cd",
+and only the directories you add with "pushd" will be on the
+stack.  This is useful for returning to another directory,
+after exploring the rest of the dungeon.
+
+Good luck!
+
+Do you want to read another spell? y/n  y
+
+View the world in color!
+
+If you have a modern, color terminal, you can view the
+output of the ls command in color!  This will still be a
+valid command if you don't have a color terminal, you just
+won't see colors.  Try this:
+
+alias ls='ls -F --color=auto'
+
+Now when you run the "ls" command by itself, rooms
+(directories), scrolls (text files), and encounters
+(executable files) should each have different colors.
+Depending on the $LS_COLORS variable, many other files will
+have different colors too!
+
+You can read more about colors by consulting the
+"dircolors" manual.  To read more, type this spell:
+
+man dircolors
+
+In the manual, you can type 'q' (without quotes) to
+exit the manual page.
+
+Do you want to read another spell? y/n  q
+bashcrawler$ ls
+scroll  tome
+bashcrawler$ alias ls='ls -F --color=auto'
+bashcrawler$ cd ..
+bashcrawler$ ls
+library/  monster*
+bashcrawler$ cd ..
+bashcrawler$ -F ..
+bash: -F: command not found
+bashcrawler$ ls
+portal@  scroll  spell*  statue*  treasure*
+bashcrawler$ ./treasure 
+
+You have found a stash of **coins**!  They are old and worn
+with age,  but they still gleam in the magickal light
+emanating from your eyes.
+
+Prefix this item to your inventory:
+
+export I=coins,$I
+
+Remember, you can check your inventory:
+
+echo $I
+
+bashcrawler$ echo $I
+
+bashcrawler$ ls
+portal@  scroll  spell*  statue*  treasure*
+bashcrawler$ cd portal
+bashcrawler$ ls
+library/  monster*
+bashcrawler$ cd ..
+bashcrawler$ cd ..
+bashcrawler$ cd ..
+bashcrawler$ ls
+armoury/  scroll  treasure*
+bashcrawler$ cd ..
+bashcrawler$ ls
+cellar/  chapel/  scrap  scroll  vault/
+bashcrawler$ cd vault/
+bashcrawler$ ls
+glass*  scroll  stronghold/
+bashcrawler$ ./glass 
+Do you have an ice crystal? y/n  n
+You sense that the glass shards are searching for something.
+Whatever it is, you cannot provide it now.
+
+Walk with care.
+
+bashcrawler$ ls
+glass*  scroll  stronghold/
+bashcrawler$ cd stronghold/
+bashcrawler$ ls
+goblet*  nursery/  orb1  scroll
+bashcrawler$ ./goblet 
+You try to grasp the faintly glowing goblet, but it passes
+through your fingers.
+
+Are you stuck? Do you need a hint? y/n  y
+Try searching opensource.com for hints on how to copy files.
+
+Still stuck? Do you need the answer? y/n  y
+The cp command copies one file to another. Run these
+commands:
+
+cp orb1 orb2
+cp orb1 orb3
+
+And then run this goblet script again for confirmation.
+
+bashcrawler$ cp orb1 orb2
+bashcrawler$ cp orb1 orb3
+bashcrawler$ ls
+goblet*  nursery/  orb1  orb2  orb3  scroll
+bashcrawler$ ./goblet 
+You have freed the goblet's material form.  Add 'goblet' to
+your inventory.
+
+bashcrawler$ ./scroll
+bash: ./scroll: Permission denied
+bashcrawler$ cd nursery/
+bashcrawler$ ls
+lab/  scroll  spell*
+bashcrawler$ ./spell
+A page from a druid's tome of incantations lies on the
+ground.  It reveals to you how to summon a healing potion:
+
+# To find a file on your system, use the find command.  For
+# example, to search this room:
+
+find . -name "potion"
+
+# Once you've found a potion, copy it to this directory and
+# run this spell script again.
+
+There are no potions in this room.  But try searching
+starting at the entrance.
+
+Hint: use pwd to determine how many rooms (folders) are
+between you and the entrance.
+
+bashcrawler$ ls
+lab/  scroll  spell*
+bashcrawler$ cd lab/
+bashcrawler$ ls
+ghost*  scroll
+bashcrawler$ ./ghost
+The room shakes, a gust of wind blasts you from nowhere.
+You sense that a presence has entered the room.  The pain
+you suddenly feel assures you that you are under attack by a
+ghostly entity!
+
+If you have a sword, you can attack.  Otherwise, you should
+run.
+
+Do you want to attack? y/n  n
+You wisely turn and flee.  Quickly cd to the previous
+directory.
+
+bashcrawler$ cd ..
+bashcrawler$ cd ..
+bashcrawler$ ls
+goblet*  nursery/  orb1  orb2  orb3  scroll
+bashcrawler$ cd ..
+bashcrawler$ ls
+glass*  scroll  stronghold/
+bashcrawler$ ./glass
+Do you have an ice crystal? y/n  n
+You sense that the glass shards are searching for something.
+Whatever it is, you cannot provide it now.
+
+Walk with care.
+
+bashcrawler$ help
+GNU bash, version 5.1.16(1)-release (x86_64-pc-linux-gnu)
+These shell commands are defined internally.  Type `help' to see this list.
+Type `help name' to find out more about the function `name'.
+Use `info bash' to find out more about the shell in general.
+Use `man -k' or `info' to find out more about commands not in this list.
+
+A star (*) next to a name means that the command is disabled.
+
+ job_spec [&]                                                           history [-c] [-d offset] [n] or history -anrw [filename] or history>
+ (( expression ))                                                       if COMMANDS; then COMMANDS; [ elif COMMANDS; then COMMANDS; ]... [ >
+ . filename [arguments]                                                 jobs [-lnprs] [jobspec ...] or jobs -x command [args]
+ :                                                                      kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill >
+ [ arg... ]                                                             let arg [arg ...]
+ [[ expression ]]                                                       local [option] name[=value] ...
+ alias [-p] [name[=value] ... ]                                         logout [n]
+ bg [job_spec ...]                                                      mapfile [-d delim] [-n count] [-O origin] [-s count] [-t] [-u fd] [>
+ bind [-lpsvPSVX] [-m keymap] [-f filename] [-q name] [-u name] [-r k>  popd [-n] [+N | -N]
+ break [n]                                                              printf [-v var] format [arguments]
+ builtin [shell-builtin [arg ...]]                                      pushd [-n] [+N | -N | dir]
+ caller [expr]                                                          pwd [-LP]
+ case WORD in [PATTERN [| PATTERN]...) COMMANDS ;;]... esac             read [-ers] [-a array] [-d delim] [-i text] [-n nchars] [-N nchars]>
+ cd [-L|[-P [-e]] [-@]] [dir]                                           readarray [-d delim] [-n count] [-O origin] [-s count] [-t] [-u fd]>
+ command [-pVv] command [arg ...]                                       readonly [-aAf] [name[=value] ...] or readonly -p
+ compgen [-abcdefgjksuv] [-o option] [-A action] [-G globpat] [-W wor>  return [n]
+ complete [-abcdefgjksuv] [-pr] [-DEI] [-o option] [-A action] [-G gl>  select NAME [in WORDS ... ;] do COMMANDS; done
+ compopt [-o|+o option] [-DEI] [name ...]                               set [-abefhkmnptuvxBCHP] [-o option-name] [--] [arg ...]
+ continue [n]                                                           shift [n]
+ coproc [NAME] command [redirections]                                   shopt [-pqsu] [-o] [optname ...]
+ declare [-aAfFgiIlnrtux] [-p] [name[=value] ...]                       source filename [arguments]
+ dirs [-clpv] [+N] [-N]                                                 suspend [-f]
+ disown [-h] [-ar] [jobspec ... | pid ...]                              test [expr]
+ echo [-neE] [arg ...]                                                  time [-p] pipeline
+ enable [-a] [-dnps] [-f filename] [name ...]                           times
+ eval [arg ...]                                                         trap [-lp] [[arg] signal_spec ...]
+ exec [-cl] [-a name] [command [argument ...]] [redirection ...]        true
+ exit [n]                                                               type [-afptP] name [name ...]
+ export [-fn] [name[=value] ...] or export -p                           typeset [-aAfFgiIlnrtux] [-p] name[=value] ...
+ false                                                                  ulimit [-SHabcdefiklmnpqrstuvxPT] [limit]
+ fc [-e ename] [-lnr] [first] [last] or fc -s [pat=rep] [command]       umask [-p] [-S] [mode]
+ fg [job_spec]                                                          unalias [-a] name [name ...]
+ for NAME [in WORDS ... ] ; do COMMANDS; done                           unset [-f] [-v] [-n] [name ...]
+ for (( exp1; exp2; exp3 )); do COMMANDS; done                          until COMMANDS; do COMMANDS; done
+ function name { COMMANDS ; } or name () { COMMANDS ; }                 variables - Names and meanings of some shell variables
+ getopts optstring name [arg ...]                                       wait [-fn] [-p var] [id ...]
+ hash [-lr] [-p pathname] [-dt] [name ...]                              while COMMANDS; do COMMANDS; done
+ help [-dms] [pattern ...]                                              { COMMANDS ; }
+bashcrawler$ ls
+glass*  scroll  stronghold/
+bashcrawler$ cd..
+bash: cd..: command not found
+bashcrawler$ cd ..
+bashcrawler$ ls
+cellar/  chapel/  scrap  scroll  vault/
+bashcrawler$ cd chapel/
+bashcrawler$ ls
+altar*  courtyard/  graveyard/  scroll
+bashcrawler$ ./altar
+In the corner is a decaying old altar of some forgotten god.
+There is a small trinket on the ground.  It looks religious
+in nature.
+
+Do you want to put the trinket back on the altar? y/n  
+y
+You place the trinket upon the altar.  You feel a gentle
+breeze pass through the room.
+
+bashcrawler$ ls
+altar*  courtyard/  graveyard/  scroll
+bashcrawler$ cd courtyard/
+bashcrawler$ ls
+aviary/  fountain*  rags*  scroll
+bashcrawler$ ./fountain 
+Do you want to approach the fountain? y/n  y
+The waters sparkle in the light of your gaze.  You feel
+drawn to it.
+
+But you suddenly feel strength to turn away.  You hear a
+sigh from the altar in the chapel.
+
+bashcrawler$ ls
+aviary/  fountain*  rags*  scroll
+bashcrawler$ ./rags 
+There's a pile of old **rags**.  They are old and worn with
+age, and probably fell off of some poor adventurer.
+
+Do you want to take the rags? y/n  y
+As you take the rags from the floor, you find a salted fish,
+probably from the rations of the former owner of these rags.
+Prefix these items to your inventory:
+
+export I=rags,fish,$I
+
+Remember, you can check your inventory
+
+echo $I
+
+bashcrawler$ echo $I
+
+bashcrawler$ export I=rags,fish,$I
+bashcrawler$ ls
+aviary/  fountain*  rags*  scroll
+bashcrawler$ cd aviary/
+bashcrawler$ ls
+crystal*  hall/  penguin*  scroll
+bashcrawler$ ./crystal 
+A white crystal, forged by the Queen of Winter, on the
+frosty ground.
+
+You can prefix this item to your inventory:
+
+I=crystal,$I
+
+Remember, you can check your inventory:
+
+echo $I
+
+bashcrawler$ I=crystal,$I
+bashcrawler$ ls
+crystal*  hall/  penguin*  scroll
+bashcrawler$ ./penguin 
+One of the birds finally notices your presence.  It turns
+its head sideways, seemingly beckoning for you to come
+closer.
+
+Do you get closer? y/n  y
+You take a step forward, and the bird rushes toward you, its
+mouth open wide.
+
+Do you happen to have a fish? y/n  y
+
+You toss the fish at the penguin,  which catches the fish
+mid-air and gobbles it down.
+
+Don't forget to remove the fish from your inventory.  Try
+the following command:
+
+export I=$(sed "s/fish//; s/,,/,/" <<< $I)
+
+bashcrawler$ export I=$(sed "s/fish//; s/,,/,/" <<< $I)
+bashcrawler$ ls
+crystal*  hall/  penguin*  scroll
+bashcrawler$ ./penguin 
+One of the birds finally notices your presence.  It turns
+its head sideways, seemingly beckoning for you to come
+closer.
+
+Do you get closer? y/n  n
+You back away from the penguin carefully.  It loses interest
+in you and waddles away.
+
+bashcrawler$ cd hall/
+bashcrawler$ ls
+library/  monster*
+bashcrawler$ cd library/
+bashcrawler$ ls
+scroll  tome*
+bashcrawler$ ./tome 
+
+You see a large tome on the table, open
+to a page in the middle of the book.
+
+Do you read it? y/n  y
+
+The tome appears to be a book of spells.  Here is the
+first spell:
+
+
+Map the entire dungeon!
+
+You can see the layout of the entire dungeon using the
+"tree" command.  You may need to install it as a separate
+package, consult your operating system package manager for
+details on how to do this.  If you're reading this from the
+library, your relative current directory path should be:
+
+entrance/chapel/courtyard/aviary/hall/library
+
+If you run the following command, from the library:
+
+tree -F ..
+
+You should see this:
+
+..
+├── library/
+│   ├── scroll
+│   └── tome*
+└── monster*
+
+The "tree" command takes many of the same options as the
+"ls" command, including colors and viewing hidden files.  Go
+back to the entrance and try it out!
+
+Do you want to read another spell? y/n  q
+bashcrawler$ ls
+scroll  tome*
+bashcrawler$ cd ..
+bashcrawler$ ls
+library/  monster*
+bashcrawler$ cd ..
+bashcrawler$ ls
+crystal*  hall/  penguin*  scroll
+bashcrawler$ cd ..
+bashcrawler$ ls
+aviary/  fountain*  rags*  scroll
+bashcrawler$ cd ..
+bashcrawler$ ls
+altar*  courtyard/  graveyard/  scroll
+bashcrawler$ cd graveyard/
+bashcrawler$ ls
+columbarium/  lower-quadrant/  padlock*  royal-tombs/  scroll
+bashcrawler$ cd columbarium/
+bashcrawler$ ls
+niches  open*  scroll
+bashcrawler$ ./open 
+You haven't touched the right niche yet.
+Please try again.
+bashcrawler$ ./niches
+bash: ./niches: Permission denied
+bashcrawler$ cd niches
+bash: cd: niches: Not a directory
+bashcrawler$ touch niches
+bashcrawler$ ls
+niches  open*  scroll
+bashcrawler$ scroll
+bash: scroll: command not found
+bashcrawler$ touch scroll
+bashcrawler$ ls
+niches  open*  scroll
+bashcrawler$ ./open
+You haven't touched the right niche yet.
+Please try again.
+bashcrawler$ cat niches 
+23 Eagle
+05 Dove
+12 Lotus flower
+19 Sword wreathed in flame
+27 Mountain
+04 Book
+16 Tree branch
+09 Sun
+01 Musical notes
+22 Pine tree
+10 An elder god
+15 Amulet
+29 Sea monster
+07 Crescent moon
+25 Butterfly
+18 Cross
+14 A familiar constellation
+30 Flame and candle
+20 Goblet
+08 Winged warrior
+11 Water droplet
+17 Castle
+03 Ibis
+24 Rose
+28 Hammer
+21 Full moon
+02 Anchor  
+26 Wheat sheaf  
+13 Crest of an ancient noble family
+06 Heart
+bashcrawler$ cat scroll 
+# Before you is the columbarium, a weathered stone structure
+# adorned with carvings of angels and vines. Rows of niches
+# line its walls, some with long burnt-out candles, others
+# with worn inscriptions and small tokens of remembrance.
+#
+# Many have distinctive symbols on their front. Maybe you 
+# can find one that is helpful.
+#
+# If you think you have found the right niche, you can touch
+# it with the following command:
+# 
+# touch <number of niche>
+#
+# This creates an empty file in the current room (directory).
+# After you have created the file, try to "open" the niche.
+#
+# If you know a spell that helps you search, you can make it easier
+# for yourself.
