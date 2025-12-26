@@ -43,10 +43,10 @@ Ordered lists - Eine Liste mit einer Reihenfolge, die mit Zahlen dargestellt wir
 
 Nested lists - Eine verschatelte Liste erstellt man, indem bei dem verschachtelten Teil vor dem "*", "1." oder "-" ein Leerzeichen mehr gesetzt wird als beim vorherigen. Beispiel:
 - Hallo
- - Hallo
- - Hallo
   - Hallo
   - Hallo
+    - Hallo
+    - Hallo
 
 ---------------------------------------------
 Links & Images
