@@ -61,9 +61,11 @@ Bitte Klicke diesen [Link](klicken)
 [klicken](www.virus.de)
 
 Images - Mit !,[Text] und (Link) kann man ein Bild anzeigen lassen mittels eines Linkes Beispiel:
+
 ![The Rock](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2r5eMj_oMSFRN6BA0GGyh66y_dgpFZaahlA&s)
 
 Image + link combination - Dasselbe wie Reference Style links nur für Bilder Beispiel:
+
 ![The Rock][GOAT]
 
 [GOAT]: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2r5eMj_oMSFRN6BA0GGyh66y_dgpFZaahlA&s
