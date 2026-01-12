@@ -1,32 +1,91 @@
 # Open Data
 
-> [!NOTE]
-> In this lab, you will practice exploring and extending an open dataset, documenting it, and reflecting on its quality and usability. The goal is to learn how open data can be used, combined, and evaluated according to best practices.
+## 1. Dataset Description
 
-**1.	Select a Dataset**  
-Choose an openly available dataset from a trusted source (examples for data sources are given in the lecture slides and here: https://github.com/irgroup-classrooms/awesome-data-modeling). Make sure the dataset is downloadable and accessible in a common format.
+### Title & Source
+- **Title:** [World Development Indicators (WDI)](https://data360.worldbank.org/en/dataset/WB_WDI)
+- **Source:** [World Bank Open Data](https://data.worldbank.org)
 
-**2.	Describe the Dataset**  
-In your documentation, provide the following details (also think about additional criteria):
-  - Title & Source (where you found it)
-  - File Format(s)
-  - Size (rows, columns, or file size)
-  - Basic statistics (e.g., ranges, averages, min/max for numeric columns)
-  - Geographic or temporal coverage (e.g., “Covers traffic data in New York, 2015–2023”)
-  - License (Is it open? What are the conditions for reuse?)
+### File Format(s)
+- CSV
+- JSON
+- PDF
 
-**3.	Augment the Dataset**  
-Identify at least one other open dataset on the web or web data (e.g., a Wikipedia page) that could be combined with your chosen dataset and briefly explain:  
-  - How the two datasets could be linked or compared.
-  - What kinds of research questions could be answered by combining them.
-  - What kinds of next steps would be necessary to merge the datasets?
+### Size
+- Currently 1.550+ indicators
+- 217 Economies
+- CSV file size: 4.4GB (full download)
 
-**4.	Review the Dataset Using FAIR Principles**  
-Assess how well the dataset follows the FAIR principles (Findable, Accessible, Interoperable, Reusable). You can find more details about the criteria in the lecture slides. Please answer the following questions:
-  - Findable: Is the dataset easy to locate with sufficient metadata?
-  - Accessible: Can anyone download it without barriers?
-  - Interoperable: Is it provided in a machine-readable, standard format?
-  - Reusable: Is the license clear, and is the documentation sufficient for reuse?
+### Basic Statistics (Example Indicators): Central government debt, total (% of GDP) for 2023 
+| Indicator | Min | Max | Average |
+|--------|--------|--------|--------|
+| GDP per capita (USD) | ~$200 | ~$120,000 | ~$15,000 |
+| Life expectancy (years) | ~45 | ~85 | ~72 |
+| CO₂ emissions (metric tons per capita) | ~0.1 | ~35 | ~4.5 |
 
-> [!IMPORTANT]
-> Finally, add a Markdown-formatted file (`dataset.md`) containing the dataset description, augmentation ideas and potential research questions, and the FAIR review to the lab repository. Please use a clear structure (headings, bullet points, tables where appropriate).
+*(Statistics depend on year and country selection.)*
+
+### Geographic Coverage
+- Global (countries and regions worldwide)
+
+### Temporal Coverage
+- Most indicators cover 1960–2023 (varies by indicator)
+
+### License
+- License: CC BY 4.0
+- Open Data License
+- Free to use, share, and adapt with attribution to the World Bank
+
+### Update Frequency
+- Quarterly
+
+---
+
+## 2. Dataset Augmentation
+
+### Additional Dataset
+- **Wikipedia – List of Countries by Human Development Index**
+  - Source: https://en.wikipedia.org/wiki/List_of_countries_by_Human_Development_Index
+
+### Linking the Datasets
+- Countries can be linked using standardized country names or ISO country codes.
+- HDI values can be aligned with World Bank indicators for the same year.
+
+### Potential Research Questions
+- How does GDP per capita correlate with Human Development Index?
+- Are there countries with high GDP but relatively low HDI?
+- How do education or health indicators influence HDI rankings?
+
+### Next Steps for Integration
+- Clean country names and resolve naming inconsistencies.
+- Select matching years across datasets.
+- Normalize or scale indicators for comparison.
+- Merge datasets using country code as a key.
+
+---
+
+## 3. FAIR Principles Review
+
+### Findable
+- ✅ Easily searchable via the World Bank Open Data portal
+- ✅ Rich metadata and indicator descriptions provided
+
+### Accessible
+- ✅ Publicly downloadable without registration
+- ✅ API access available for programmatic use
+
+### Interoperable
+- ✅ Provided in standard formats (CSV, XLS, JSON)
+- ✅ Compatible with common data analysis tools
+
+### Reusable
+- ✅ Clear open license
+- ✅ Extensive documentation and methodology notes
+- ⚠️ Some indicators require domain knowledge to interpret correctly
+
+---
+
+## 4. Overall Assessment
+
+The World Development Indicators dataset strongly adheres to the FAIR principles. Its global scope, long temporal coverage, and open licensing make it highly suitable for research, education, and data integration projects. Challenges mainly relate to data size and indicator complexity rather than accessibility or reuse rights.
+
