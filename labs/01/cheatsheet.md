@@ -510,11 +510,13 @@ Mentions are created by typing the `@` symbol followed by the GitHub username.
 
 #### Markdown Syntax (Code)
 ``` 
-@h44mi
+@octocat
+
 ```
 
 #### Rendered Output
-@h44mi
+@octocat
+
 
 
 ### - Automatic linking of issues/PRs 
