@@ -16,12 +16,12 @@
 - 217 Economies
 - CSV file size: 4.4GB (full download)
 
-### Basic Statistics (Example Indicators): Central government debt, total (% of GDP) for 2023 
-| Indicator | Min | Max | Average |
-|--------|--------|--------|--------|
-| GDP per capita (USD) | ~$200 | ~$120,000 | ~$15,000 |
-| Life expectancy (years) | ~45 | ~85 | ~72 |
-| CO₂ emissions (metric tons per capita) | ~0.1 | ~35 | ~4.5 |
+### Basic Statistics (Example Indicators): all for 2023 
+| Indicators                                                        | Min     | Max      |
+|:------------------------------------------------------------------|--------:|---------:|
+| Central government debt, total (% of GDP)                         | _18.50_ | _116.98_ |
+| Life expectancy at birth, total (years)                           | _54.46_ | _86.37_  |
+| Carbon dioxide (CO2) emissions (total) excluding LULUCF (Mt CO2e) | _0.08_  | _13,280_ |
 
 *(Statistics depend on year and country selection.)*
 
@@ -45,7 +45,7 @@
 
 ### Additional Dataset
 - **Wikipedia – List of Countries by Human Development Index**
-  - Source: https://en.wikipedia.org/wiki/List_of_countries_by_Human_Development_Index
+  - Source: [Wikipedia](https://en.wikipedia.org/wiki/List_of_countries_by_Human_Development_Index)
 
 ### Linking the Datasets
 - Countries can be linked using standardized country names or ISO country codes.
@@ -57,35 +57,40 @@
 - How do education or health indicators influence HDI rankings?
 
 ### Next Steps for Integration
-- Clean country names and resolve naming inconsistencies.
-- Select matching years across datasets.
-- Normalize or scale indicators for comparison.
-- Merge datasets using country code as a key.
+- Export the relevant table from Wikipedia into a structured format (e.g., CSV) using copy–paste or automated tools.
+- Remove footnotes, annotations, and non-numeric symbols from the Wikipedia data.
+- Clean country names and resolve naming inconsistencies between datasets.
+- Add or verify ISO country codes for reliable linking.
+- Select matching years across datasets to ensure temporal consistency.
+- Normalize or scale indicators where necessary for comparison.
+- Merge the datasets using ISO country codes as a common key.
 
 ---
 
 ## 3. FAIR Principles Review
 
 ### Findable
-- ✅ Easily searchable via the World Bank Open Data portal
-- ✅ Rich metadata and indicator descriptions provided
+:white_check_mark: Easily searchable via the World Bank Open Data portal  
+:white_check_mark: Rich metadata and indicator descriptions provided  
 
 ### Accessible
-- ✅ Publicly downloadable without registration
-- ✅ API access available for programmatic use
+:white_check_mark: Publicly downloadable without registration  
+:white_check_mark: API access available for programmatic use  
 
 ### Interoperable
-- ✅ Provided in standard formats (CSV, XLS, JSON)
-- ✅ Compatible with common data analysis tools
+:white_check_mark: Provided in standard formats (CSV, XLS, JSON)  
+:white_check_mark: Compatible with common data analysis tools  
 
 ### Reusable
-- ✅ Clear open license
-- ✅ Extensive documentation and methodology notes
-- ⚠️ Some indicators require domain knowledge to interpret correctly
+:white_check_mark: Clear open license  
+:white_check_mark: Extensive documentation and methodology notes  
+:exclamation: Some indicators require domain knowledge to interpret correctly
 
 ---
 
 ## 4. Overall Assessment
 
-The World Development Indicators dataset strongly adheres to the FAIR principles. Its global scope, long temporal coverage, and open licensing make it highly suitable for research, education, and data integration projects. Challenges mainly relate to data size and indicator complexity rather than accessibility or reuse rights.
+The World Development Indicators dataset strongly adheres to the FAIR principles.
+Its global scope, long temporal coverage, and open licensing make it highly suitable for research, education, and data integration projects.
+Challenges mainly relate to data size and indicator complexity rather than accessibility or reuse rights.
 
